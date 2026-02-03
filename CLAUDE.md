@@ -1,43 +1,32 @@
-# vue2.6.14-skills Development Guidelines
+# CLAUDE.md
 
-Auto-generated from all feature plans. Last updated: 2026-02-03
-
-## Active Technologies
-
-- Markdown (SKILL.md files) with YAML frontmatter (001-vue2-agent)
-- Vue 2.6.14 Options API (skill content focus)
-- TypeScript with Vue.extend() (skill content focus)
-- Less CSS preprocessor (skill content focus)
-- Vue CLI 4.x/5.x (skill content focus)
-- Vue Router 3.x (skill content focus)
-- Vuex 3.x (skill content focus)
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Type
 
-This is an **Agent Skills repository** following the Vercel Labs skills specification. The deliverables are SKILL.md files with YAML frontmatter, NOT runnable Vue applications.
+This is an **Agent Skills repository** following the [Vercel Labs Skills](https://github.com/vercel-labs/skills) specification. The deliverables are SKILL.md files with YAML frontmatter and categorized reference documentation—NOT runnable Vue applications.
 
-## Project Structure
+The repository contains a single skill (`vue2.6.14`) with 80 reference files covering Vue 2.6.14 Options API development.
+
+## Repository Structure
 
 ```text
-skills/                              # Agent skills directory
-├── vue2-core-concepts/              # Vue 2.6.14 core concepts
-│   └── SKILL.md
-├── vue2-component-patterns/         # Component patterns with TypeScript
-│   └── SKILL.md
-├── vue2-cli-build-tooling/          # Vue CLI and build configuration
-│   └── SKILL.md
-└── vue2-ecosystem-integration/      # Vue Router, Vuex, ecosystem
-    └── SKILL.md
-
-examples/                            # Optional code examples
-specs/                               # Feature specifications
-└── 001-vue2-agent/
-    ├── spec.md
-    ├── plan.md
-    ├── research.md
-    ├── data-model.md
-    ├── quickstart.md
-    └── contracts/
+skills/
+└── vue2.6.14/
+    ├── SKILL.md                 # Main skill file (YAML frontmatter + categorized links)
+    └── reference/               # 80 reference files in 12 categories
+        ├── reactivity/           # Object.defineProperty limitations, $set/$delete
+        ├── global-api/           # Vue.config, Vue.nextTick, custom directives
+        ├── lifecycle/            # beforeDestroy/destroyed, errorCaptured
+        ├── component-options/    # Props, slots, events, watchers, provide/inject
+        ├── directives/           # v-model, v-on, v-bind modifiers, v-for/v-if
+        ├── instance-api/         # $refs, $emit, $forceUpdate, $data/$props
+        ├── components/           # transition, keep-alive, transition-group
+        ├── render-functions/     # createElement, JSX, functional components
+        ├── types/                # Vue.extend(), PropType, ThisType, shims
+        ├── build-tooling/        # Vue CLI, Less, vue-template-compiler
+        ├── ecosystem/            # Vue Router 3.x, Vuex 3.x, @vue/composition-api
+        └── comparison/           # Vue 2 vs Vue 3 differences
 ```
 
 ## Commands
@@ -46,42 +35,55 @@ specs/                               # Feature specifications
 # List installed skills
 npx skills list
 
-# Add a skill (for testing)
-npx skills add ./skills/vue2-core-concepts
+# Add skill locally (for testing)
+npx skills add ./skills/vue2.6.14
 
-# Check for skill updates
-npx skills check
-
-# Validate YAML frontmatter
-python3 -c "import yaml; yaml.safe_load(open('skills/vue2-core-concepts/SKILL.md'))"
+# Count reference files
+find skills/vue2.6.14/reference -name '*.md' | wc -l
 ```
 
-## Code Style
+## Version Constraints
 
-### SKILL.md Files
+**Critical**: All content must be specific to **Vue 2.6.14** with the following constraints:
 
-- **Format**: YAML frontmatter + Markdown content
-- **Required fields**: `name` (kebab-case), `description` (10-200 chars)
-- **Optional fields**: `metadata.internal`, `metadata.author`, `metadata.version`, `metadata.source`
+1. **Options API only** - Do NOT use Composition API syntax (unless documenting `@vue/composition-api` plugin)
+2. **Object.defineProperty reactivity** - Vue 2 does not use Proxy-based reactivity
+3. **Lifecycle hooks**: `beforeDestroy`/`destroyed` (NOT `beforeUnmount`/`unmounted`)
+4. **Vue 2.6.0+ features** must be documented with version notes:
+   - Dynamic directive arguments: `v-bind:[key]`, `@[event]`
+   - v-slot shorthand: `#header` (NOT `slot-scope`)
+   - `errorCaptured` hook for async component errors
+   - `ThisType` support for better TypeScript inference
 
-### Skill Content Guidelines
+## Reference File Format
 
-1. **Vue 2.6.14 Only**: Use Options API, NOT Composition API
-2. **TypeScript Pattern**: Use `Vue.extend()` for components
-3. **Style Preprocessor**: Use Less in examples (`<style lang="less">`)
-4. **Complete SFCs**: Always show template, script, and style sections
-5. **When to Use**: Include 3+ specific scenarios
-6. **Code Examples**: Full, copy-pasteable Vue 2.6.14 code
-7. **Common Gotchas**: Document issues with solutions
-8. **Cross-References**: Use `[skill-name]` for related skills
+All reference files in `reference/` directories follow this structure:
 
-### Vue 2.6.14 Code Example Template
+```markdown
+---
+title: Descriptive Title
+impact: HIGH|MEDIUM|LOW
+impactDescription: Brief description
+type: capability|best-practice|anti-pattern
+tags:
+  - vue2.6.14
+  - category-name
+  - relevant-tags
+---
+
+# Title
+
+Impact: LEVEL - Description
+
+## Task Checklist
+
+- [ ] Action item
+
+## Code Example
 
 ```vue
 <template>
-  <div class="component-name">
-    <!-- Vue 2 template syntax -->
-  </div>
+  <!-- Vue 2.6.14 template syntax -->
 </template>
 
 <script lang="ts">
@@ -89,36 +91,78 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ComponentName',
-  props: {
-    // Props with validation
-  },
+  props: { },
   data() {
-    return {
-      // Reactive data
-    }
+    return { }
   },
-  computed: {
-    // Computed properties
-  },
-  methods: {
-    // Methods
-  },
-  mounted() {
-    // Lifecycle hook
-  }
+  computed: { },
+  methods: { },
+  mounted() { }
 })
 </script>
 
 <style lang="less" scoped>
-// Less preprocessor styles
+// Less preprocessor
 </style>
 ```
 
-## Recent Changes
+## Common Gotchas
 
-- 001-vue2-agent: Added Markdown (SKILL.md files) with YAML frontmatter
-- 001-vue2-agent: Added Vue 2.6.14 + TypeScript + Less technology stack
-- 001-vue2-agent: Created skill structure templates and contracts
+- List of issues
+
+## Reference
+
+- [Vue 2 Documentation](https://vue2.docs.vuejs.org/)
+```
+
+## Technology Stack (for code examples)
+
+- **Vue**: 2.6.14 Options API
+- **TypeScript**: `Vue.extend()` pattern (NOT `<script setup>`)
+- **Styles**: Less preprocessor (`<style lang="less">`)
+- **Router**: Vue Router 3.x
+- **State**: Vuex 3.x
+- **Build**: Vue CLI 4.x/5.x
+
+## SKILL.md Format
+
+The main `SKILL.md` file requires:
+
+```yaml
+---
+name: vue2.6.14
+description: Brief description (10-200 chars)
+version: 1.0.0
+license: MIT
+author: github.com/username
+---
+```
+
+Content sections use the format: `**Topic** → See [category/](reference/category/file.md)`
+
+## Tag Convention
+
+All reference files MUST use `vue2.6.14` tag (NOT `vue2` or generic tags).
+
+## When Adding Reference Files
+
+1. Place file in appropriate `reference/` subdirectory
+2. Follow the reference file format above
+3. Use `vue2.6.14` tag in frontmatter
+4. Add link to `SKILL.md` in appropriate category
+5. Update count in `README.md`
+
+## Key Vue 2 vs Vue 3 Differences
+
+| Concept | Vue 2.6.14 | Vue 3 |
+|---------|------------|-------|
+| Component definition | `Vue.extend()` | `defineComponent()` |
+| Lifecycle | `beforeDestroy`/`destroyed` | `beforeUnmount`/`unmounted` |
+| Event emission | `$emit` | `emit()` (setup) |
+| Slot syntax | `slot-scope` | `v-slot` |
+| Filters | ✅ Supported | ❌ Removed |
+| Attributes | `$attrs`, `$listeners` | `$attrs` (merged) |
+| Reactivity | `Vue.set()`/`Vue.delete()` | Native Proxy |
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->
