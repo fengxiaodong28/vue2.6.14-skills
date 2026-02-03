@@ -31,7 +31,37 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Verify compliance with the following principles from `.specify/memory/constitution.md`:
+
+### I. Code Quality
+- [ ] Functions are single-purpose with cyclomatic complexity <= 10
+- [ ] Naming conventions are descriptive and clear
+- [ ] Code organization reflects architectural boundaries
+- [ ] Public APIs and complex logic include documentation
+- [ ] Linting and formatting configured
+
+### II. Testing Standards
+- [ ] Test coverage plan meets 80% minimum (100% for critical paths)
+- [ ] Unit, integration, and E2E tests planned appropriately
+- [ ] Test-first approach defined for critical business logic
+- [ ] Test independence and mocking strategy documented
+
+### III. User Experience Consistency
+- [ ] Design system or component library identified
+- [ ] Interaction patterns follow established conventions
+- [ ] Responsive design approach defined
+- [ ] Accessibility (WCAG 2.1 AA) requirements addressed
+- [ ] Loading states and error messaging planned
+
+### IV. Performance Requirements
+- [ ] Response time targets defined (page load <3s, TTI <5s, API <200ms p95)
+- [ ] Resource budgets established (JS bundle <200KB gzipped, page weight <2MB)
+- [ ] Runtime performance considerations addressed (60fps animations, memory management)
+- [ ] Core Web Vitals monitoring planned
+
+### Development Standards
+- [ ] Security requirements addressed (input validation, dependencies, secrets)
+- [ ] Version control strategy defined (branching, commit conventions)
 
 ## Project Structure
 

@@ -105,11 +105,24 @@
 <!--
   ACTION REQUIRED: Define measurable success criteria.
   These must be technology-agnostic and measurable.
+
+  Reference Constitution Principles IV (Performance Requirements) for guidance.
 -->
 
 ### Measurable Outcomes
 
 - **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
+- **SC-002**: [Performance metric aligned with constitution, e.g., "Page loads within 3 seconds on 4G networks"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-004**: [Quality metric, e.g., "80%+ test coverage for all new code"]
+- **SC-005**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Non-Functional Requirements
+
+<!--
+  ACTION REQUIRED: Specify quality attributes from constitution principles.
+-->
+
+- **NFR-001**: [Accessibility requirement, e.g., "WCAG 2.1 AA compliant"]
+- **NFR-002**: [Security requirement, e.g., "All user input validated and sanitized"]
+- **NFR-003**: [Maintainability requirement, e.g., "Code complexity <= 10 per function"]

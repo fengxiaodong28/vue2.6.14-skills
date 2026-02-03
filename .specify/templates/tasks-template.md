@@ -82,9 +82,16 @@ Examples of foundational tasks (adjust based on your project):
 ### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+>
+> Per Constitution Principle II (Testing Standards):
+> - Tests MUST be written before implementation for critical paths
+> - Tests MUST fail initially, then pass after implementation
+> - Each test MUST be independent (sets up its own state)
+> - Tests MUST assert on observable behavior, not implementation details
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T010 [P] [US1] Unit tests for [component/service] in tests/unit/test_[name].py
 - [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T012 [P] [US1] Contract test for [API endpoint] in tests/contract/test_[name].py (if applicable)
 
 ### Implementation for User Story 1
 
@@ -94,6 +101,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
 - [ ] T016 [US1] Add validation and error handling
 - [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T018 [US1] Run linter and address all warnings (Constitution Principle I)
+- [ ] T019 [US1] Verify accessibility (WCAG 2.1 AA) for user story 1 UI (Constitution Principle III)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -107,8 +116,11 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
+> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+
+- [ ] T018 [P] [US2] Unit tests for [component/service] in tests/unit/test_[name].py
 - [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T020 [P] [US2] Contract test for [API endpoint] in tests/contract/test_[name].py (if applicable)
 
 ### Implementation for User Story 2
 
@@ -129,8 +141,11 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
+> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+
+- [ ] T024 [P] [US3] Unit tests for [component/service] in tests/unit/test_[name].py
 - [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T026 [P] [US3] Contract test for [API endpoint] in tests/contract/test_[name].py (if applicable)
 
 ### Implementation for User Story 3
 
