@@ -3,7 +3,7 @@ name: vue2.6.14
 description: Vue 2.6.14 Options API best practices, reactivity system, component patterns, and ecosystem integration. Each reference shows Vue 2.6.14 specific solutions only.
 version: 1.0.0
 license: MIT
-author: github.com/username
+author: github.com/fengxiaodong28
 ---
 
 # Vue 2.6.14 Options API & Best Practices

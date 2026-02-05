@@ -29,14 +29,14 @@ Inspired by [vuejs-ai/skills](https://github.com/vuejs-ai/skills) - the official
 cd /path/to/vue2.6.14-skills
 
 # Install the skill
-npx skills add ./skills/vue2.6.14
+npx skills add .
 ```
 
 ### Install from GitHub (after publishing)
 
 ```bash
 # Install to Claude Code
-npx skills add username/vue2.6.14-skills
+npx skills add https://github.com/fengxiaodong28/vue2.6.14-skills
 ```
 
 ### Verify Installation
@@ -142,22 +142,20 @@ export default {
 
 ```text
 vue2.6.14-skills/
-├── skills/
-│   └── vue2.6.14/                   # Vue 2.6.14 skill
-│       ├── SKILL.md                 # Main skill file with categorized links
-│       └── reference/               # 80 reference files in 12 categories
-│           ├── reactivity/           # Reactivity system (7 files)
-│           ├── global-api/           # Global API (6 files)
-│           ├── lifecycle/            # Lifecycle (4 files)
-│           ├── component-options/    # Component options (15 files)
-│           ├── directives/           # Directives (11 files)
-│           ├── instance-api/         # Instance API (5 files)
-│           ├── components/           # Built-in components (3 files)
-│           ├── render-functions/     # Render functions (1 file)
-│           ├── types/                # TypeScript (6 files)
-│           ├── build-tooling/        # Build tooling (5 files)
-│           ├── ecosystem/            # Ecosystem (14 files)
-│           └── comparison/           # Vue 2 vs 3 comparison (3 files)
+├── reference/                       # 80 reference files in 12 categories
+│   ├── reactivity/                   # Reactivity system (7 files)
+│   ├── global-api/                   # Global API (6 files)
+│   ├── lifecycle/                    # Lifecycle (4 files)
+│   ├── component-options/            # Component options (15 files)
+│   ├── directives/                   # Directives (11 files)
+│   ├── instance-api/                 # Instance API (5 files)
+│   ├── components/                   # Built-in components (3 files)
+│   ├── render-functions/             # Render functions (1 file)
+│   ├── types/                        # TypeScript (6 files)
+│   ├── build-tooling/                # Build tooling (5 files)
+│   ├── ecosystem/                    # Ecosystem (14 files)
+│   └── comparison/                   # Vue 2 vs 3 comparison (3 files)
+├── SKILL.md                         # Main skill file with categorized links
 ├── README.md                        # This file
 ├── CLAUDE.md                        # Developer guidelines
 └── LICENSE                          # MIT license
@@ -274,7 +272,7 @@ python3 -c "import yaml; yaml.safe_load(open('skills/vue2.6.14/SKILL.md'))"
 
 ### Adding New Reference Files
 
-1. Create file in appropriate category under `skills/vue2.6.14/reference/`
+1. Create file in appropriate category under `reference/`
 2. Follow the reference file format:
    - YAML frontmatter (title, impact, impactDescription, type, tags)
    - Clear description with Impact statement

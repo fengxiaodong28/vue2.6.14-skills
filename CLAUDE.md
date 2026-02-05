@@ -11,22 +11,24 @@ The repository contains a single skill (`vue2.6.14`) with 80 reference files cov
 ## Repository Structure
 
 ```text
-skills/
-└── vue2.6.14/
-    ├── SKILL.md                 # Main skill file (YAML frontmatter + categorized links)
-    └── reference/               # 80 reference files in 12 categories
-        ├── reactivity/           # Object.defineProperty limitations, $set/$delete
-        ├── global-api/           # Vue.config, Vue.nextTick, custom directives
-        ├── lifecycle/            # beforeDestroy/destroyed, errorCaptured
-        ├── component-options/    # Props, slots, events, watchers, provide/inject
-        ├── directives/           # v-model, v-on, v-bind modifiers, v-for/v-if
-        ├── instance-api/         # $refs, $emit, $forceUpdate, $data/$props
-        ├── components/           # transition, keep-alive, transition-group
-        ├── render-functions/     # createElement, JSX, functional components
-        ├── types/                # Vue.extend(), PropType, ThisType, shims
-        ├── build-tooling/        # Vue CLI, Less, vue-template-compiler
-        ├── ecosystem/            # Vue Router 3.x, Vuex 3.x, @vue/composition-api
-        └── comparison/           # Vue 2 vs Vue 3 differences
+vue2.6.14-skills/
+├── reference/               # 80 reference files in 12 categories
+│   ├── reactivity/           # Object.defineProperty limitations, $set/$delete
+│   ├── global-api/           # Vue.config, Vue.nextTick, custom directives
+│   ├── lifecycle/            # beforeDestroy/destroyed, errorCaptured
+│   ├── component-options/    # Props, slots, events, watchers, provide/inject
+│   ├── directives/           # v-model, v-on, v-bind modifiers, v-for/v-if
+│   ├── instance-api/         # $refs, $emit, $forceUpdate, $data/$props
+│   ├── components/           # transition, keep-alive, transition-group
+│   ├── render-functions/     # createElement, JSX, functional components
+│   ├── types/                # Vue.extend(), PropType, ThisType, shims
+│   ├── build-tooling/        # Vue CLI, Less, vue-template-compiler
+│   ├── ecosystem/            # Vue Router 3.x, Vuex 3.x, @vue/composition-api
+│   └── comparison/           # Vue 2 vs Vue 3 differences
+├── SKILL.md                 # Main skill file (YAML frontmatter + categorized links)
+├── CLAUDE.md                # This file - developer guidelines
+├── README.md                # Project documentation
+└── LICENSE                  # MIT license
 ```
 
 ## Commands
@@ -36,10 +38,10 @@ skills/
 npx skills list
 
 # Add skill locally (for testing)
-npx skills add ./skills/vue2.6.14
+npx skills add .
 
 # Count reference files
-find skills/vue2.6.14/reference -name '*.md' | wc -l
+find reference -name '*.md' | wc -l
 ```
 
 ## Version Constraints
@@ -134,7 +136,7 @@ name: vue2.6.14
 description: Brief description (10-200 chars)
 version: 1.0.0
 license: MIT
-author: github.com/username
+author: github.com/fengxiaodong28
 ---
 ```
 
@@ -150,7 +152,7 @@ All reference files MUST use `vue2.6.14` tag (NOT `vue2` or generic tags).
 2. Follow the reference file format above
 3. Use `vue2.6.14` tag in frontmatter
 4. Add link to `SKILL.md` in appropriate category
-5. Update count in `README.md`
+5. Update file counts in `README.md`
 
 ## Key Vue 2 vs Vue 3 Differences
 
